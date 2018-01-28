@@ -1,0 +1,9 @@
+---
+- name: Create Required Directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ pne_user_id }}"
+    group: "{{ pne_user_gid }}"
+  with_items:
+    - "{{ pne_install_dir }}"

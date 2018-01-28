@@ -1,0 +1,15 @@
+---
+- name: Set System Facts
+  set_fact:
+    pne_arch_type: amd64
+  when: ansible_architecture == "x86_64"
+
+- name: Set Github Version Tag
+  set_fact:
+    pne_tag_version: "v{{ pne_version }}"
+  when: pne_base_url == "https://github.com"
+
+- name: Set Default Version Tag
+  set_fact:
+    pne_tag_version: "{{ pne_version }}"
+  when: pne_base_url != "https://github.com"

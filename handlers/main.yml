@@ -1,0 +1,15 @@
+---
+- name: start node
+  service:
+    name: node-exporter
+    state: started
+
+- name: enable node
+  service:
+    name: node-exporter
+    enabled: yes
+
+- name: stop node
+  service:
+    name: node-exporter
+    state: stopped
