@@ -1,4 +1,6 @@
 ---
+- include_tasks: set-role-facts.yml
+
 - include_tasks: create-user.yml
   when: pne_create_user == true
 
