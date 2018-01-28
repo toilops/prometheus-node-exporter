@@ -13,14 +13,17 @@ Role Variables
 
 Installation of Node Exporter is straight forward and extremely light weight. The following variables can be changed to meet your requirements.
 
-User to run Node Exporter under, the role will create the below user.
+User to run Node Exporter under, the role will create the below user by default.
 
 ```yaml
 pne_user_id: prometheus
 pne_user_gid: prometheus
 ```
 
-Disable user creation by setting the following to false. You must set the `pne_user_id` and `pne_user_gid` to the required runtime user.
+Disable user creation by setting the following to false. You must set `pne_user_id` and `pne_user_gid` to the required runtime user.
+```yaml
+pne_create_user: false
+```
 
 Installation Directory
 
@@ -35,7 +38,6 @@ Variables to define which Node Exporter binary to download.
 pne_system: "{{ ansible_system | lower }}"
 pne_app_name: node_exporter
 pne_version: 0.15.2
-pne_file_extension: tar.gz
 pne_base_url: https://github.com
 pne_context_root: prometheus/node_exporter/releases/download
 pne_file_name: "{{ pne_app_name }}-{{ pne_version }}.{{ pne_system }}-{{ pne_arch_type }}.{{ pne_file_extension }}"
@@ -54,7 +56,7 @@ The following is an example of how to run this role on your remote system:
 License
 -------
 
-MIT
+Apache
 
 Author Information
 ------------------
