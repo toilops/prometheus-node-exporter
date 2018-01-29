@@ -5,6 +5,8 @@
     name: "{{ pne_user_id }}"
     createhome: no
     shell: /bin/false
+
+- name: Create Group
   group:
     state: present
     name: "{{ pne_user_gid }}"
