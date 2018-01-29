@@ -10,7 +10,7 @@ jobs:
           command: yum install -y epel-release && yum install -y python-pip
       - run:
           name: Set Role Variable
-          command: printf '[defaults]\nroles_path=../' >ansible.cfg
+          command: export ANSIBLE_ROLES_PATH=$(pwd)../../
       - run:
           name: Install Ansible
           command: pip install ansible
