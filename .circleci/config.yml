@@ -13,4 +13,4 @@ jobs:
           command: pip install ansible
       - run:
           name: Test Role
-          command: 
+          command: ansible-playbook tests/test.yml -i tests/inventory
