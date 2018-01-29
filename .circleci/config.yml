@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Install Packages
-          command: yum install -y epel-release && yum update && yum install -y python-pip
+          command: yum install -y epel-release && yum install -y python-pip
       - run:
           name: Set Role Variable
           command: printf '[defaults]\nroles_path=../' >ansible.cfg
