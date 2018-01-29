@@ -6,7 +6,7 @@ pne_create_user: true
 
 # Install Location
 pne_install_dir: /opt/prometheus/bin
-pne_systemd_dir: /etc/systemd/system
+pne_systemd_dir: /usr/lib/systemd/system
 
 # Binary Download Information
 pne_system: "{{ ansible_system | lower }}"
