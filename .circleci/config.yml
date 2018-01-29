@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image chrismeyers/centos7
+    steps:
+      - checkout
+      - run:
+          name: Set Role Variable
+          command: printf '[defaults]\nroles_path=../' >ansible.cfg
+      - run:
+          name: Install Ansible
+          command: pip install ansible
+      - run:
+          name: Test Role
+          command: 
