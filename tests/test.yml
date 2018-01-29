@@ -1,15 +1,6 @@
 ---
-- name: Bring up docker containers
-  hosts: localhost
-  gather_facts: false
-  vars:
-    inventory:
-      - name: prom_host_1
-        image: "chrismeyers/centos6"
-  roles:
-    - { role: provision_docker, provision_docker_inventory: "{{inventory}}" }
-
 - name: Install Node Exporter
-  hosts: docker_containers
+  hosts: localhost
+  connection: local
   roles:
     - prometheus-node-exporter
