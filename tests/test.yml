@@ -20,10 +20,10 @@
             msg: "Prometheus Binary NOT Installed"
           when: stfile.stat.exists != true
         - name: Start Exporter
-          shell: "/opt/prometheus/bin/node_exporter &"
+          shell: "nohup /opt/prometheus/bin/node_exporter &"
         - name: Check state of exporter
           uri:
-            url: "http://localhost:9100/metrics
+            url: "http://localhost:9100/metrics"
             status_code: 200
           register: resp
         - debug:
