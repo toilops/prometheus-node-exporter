@@ -11,14 +11,18 @@
           import_role:
             name: prometheus-node-exporter
       rescue:
-        - stat:
+        - name: Checking for binary 
+          stat:
             path: "/opt/prometheus/bin/node_exporter"
           register: stfile
-        - fail:
+        - name: Forcefully Fail
+          fail:
             msg: "Prometheus Binary NOT Installed"
           when: stfile.stat.exists != true
-        - command: /opt/prometheus/bin/node_exporter &
-        - uri:
+        - name: Start Exporter
+          shell: "/opt/prometheus/bin/node_exporter &"
+        - name: Check state of exporter
+          uri:
             url: "http://localhost:9100/metrics
             status_code: 200
           register: resp
