@@ -3,5 +3,25 @@
   hosts: localhost
   connection: local
   become: true
-  roles:
-    - prometheus-node-exporter
+  tasks:
+
+    - name: Test Role
+      block:
+        - name: execute role
+          import_role:
+            name: prometheus-node-exporter
+      rescue:
+        - stat:
+            path: "/opt/prometheus/bin/node_exporter"
+          register: stfile
+        - fail:
+            msg: "Prometheus Binary NOT Installed"
+          when: stfile.stat.exists != true
+        - command: /opt/prometheus/bin/node_exporter &
+        - uri:
+          url: "http://localhost:9100/metrics
+          status_code: 200
+          register: resp
+        - debug:
+            msg: "Node-Exporter Install Successful"
+          when: resp.status == 200
