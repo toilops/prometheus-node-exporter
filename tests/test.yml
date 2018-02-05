@@ -19,8 +19,8 @@
           when: stfile.stat.exists != true
         - command: /opt/prometheus/bin/node_exporter &
         - uri:
-          url: "http://localhost:9100/metrics
-          status_code: 200
+            url: "http://localhost:9100/metrics
+            status_code: 200
           register: resp
         - debug:
             msg: "Node-Exporter Install Successful"
