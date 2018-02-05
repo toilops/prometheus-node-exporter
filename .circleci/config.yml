@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: chrismeyers/centos7
+    working_directory: ~/projects/prometheus-node-exporter
     steps:
       - checkout
       - run:
