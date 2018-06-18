@@ -11,7 +11,7 @@ pne_systemd_dir: /usr/lib/systemd/system
 # Binary Download Information
 pne_system: "{{ ansible_system | lower }}"
 pne_app_name: node_exporter
-pne_version: 0.15.2
+pne_version: 0.16.0
 pne_file_extension: tar.gz
 pne_base_url: https://github.com
 pne_context_root: prometheus/node_exporter/releases/download

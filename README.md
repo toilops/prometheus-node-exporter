@@ -1,7 +1,9 @@
 Prometheus Node Exporter
 =========
 
-Ansible Role to configure and install Prometheus Node Exporter
+[![Build Status](https://travis-ci.org/toilops/prometheus-node-exporter.svg?branch=master)](https://travis-ci.org/toilops/prometheus-node-exporter)   [![Ansible-Galaxy](https://img.shields.io/badge/Ansible--Galaxy-toilops.prometheus--node--exporter-blue.svg)](https://galaxy.ansible.com/toilops/prometheus-node-exporter)
+
+Ansible Role to configure and install Prometheus Node Exporter. Role is tagged based on the Prometheus release version.
 
 Requirements
 ------------
